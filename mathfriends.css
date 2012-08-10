@@ -1,0 +1,274 @@
+/* CB0077 - Hot    Pink
+ * 982669 - Grey   Pink
+ * 84004D - Dark   Pink
+ * E5399E - Pastel Pink
+ * E567B1 - Light  Pink */
+
+/* FONTS */
+
+h1, h2, h3, .left .name, .header_item {
+	font-family: 'Capriola', sans-serif;
+}
+
+#header .dot { color: #ff0; }
+#header .c   { color: #f60; }
+#header .o   { color: #66f; }
+#header .m   { color: #69f; }
+
+body {
+	background: url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/use_your_illusion.png);
+	margin: 0;
+	padding: 0;
+}
+
+#mf_title {
+	font-size: 130%;
+}
+
+#title {
+	width: 400px;
+}
+
+#header #title a {
+	color: #f3f3f3;
+}
+
+#wrapper {
+	background: transparent url(/stripe.png) no-repeat -240px -30px;
+	min-height: 1000px;
+	position: absolute;
+	min-width: 100%;
+	min-height: 100%;
+	padding-bottom: 400px;
+}
+
+#newsnippet {
+	background: black;
+	border-top: #fafafa 1px dashed;
+	border-bottom: #fafafa 1px dashed;
+	color: #E5399E;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: #FFF 0px 0px 1px;
+	margin: 20px 0 60px 0;
+}
+
+#footer img {
+	border: 1px solid black;
+}
+
+#footer li {
+	list-style: none;
+	margin: 6px;
+}
+
+#footer ul {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	height: 300px;
+	background: black;
+	width: 100%;
+	color:  white;
+	background: url(/trees.png) black;
+
+	-webkit-box-shadow: 0 -6px 5px rgba(9, 0, 1, 0.75);
+	-moz-box-shadow:    0 -6px 5px rgba(9, 0, 1, 0.75);
+	box-shadow:         0 -6px 5px rgba(9, 0, 1, 0.75);
+}
+
+.pillar {
+	width: 1140px;
+	margin: 0 auto;
+}
+
+#newsnippet a {
+	text-decoration: none;
+	color: #E5399E;
+	font-weight: bold;
+}
+
+#header {
+	margin-top: 30px;
+}
+
+.header_item a:hover, .header_item:hover, .header_item *:hover, a:hover {
+	color: white !important;
+}
+
+.header_item {
+	display: inline-block;
+
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+
+	-webkit-box-shadow: -7px 6px 5px rgba(29, 0, 10, 0.75);
+	-moz-box-shadow:    -7px 6px 5px rgba(29, 0, 10, 0.75);
+	box-shadow:         -7px 6px 5px rgba(29, 0, 10, 0.75);
+
+	background: url(http://subtlepatterns.com/patterns/square_bg.png) #84004D;
+
+	padding:    20px 10px;
+	margin:     10px;
+	width:      180px;
+	text-align: center;
+
+	border: 1px solid black;
+}
+
+#header a {
+	color: #E5399E;
+	text-decoration: none;
+	text-shadow: #000 -2px 2px 2px;
+}
+
+.small_snippet {
+	position: relative;
+	border: 3px solid black;
+	padding: 0;
+	display: inline-block;
+	margin: 15px;
+	background: #E567B1;
+
+	-webkit-box-shadow: -7px 6px 5px rgba(29, 0, 10, 0.75);
+	-moz-box-shadow:    -7px 6px 5px rgba(29, 0, 10, 0.75);
+	box-shadow:         -7px 6px 5px rgba(29, 0, 10, 0.75);
+
+	-webkit-border-top-left-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-moz-border-radius-topleft: 15px;
+	-moz-border-radius-bottomleft: 15px;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.small_snippet .left {
+	padding: 10px 30px;
+	display: inline-block;
+	font-weight: bold;
+	width: 120px;
+}
+
+.small_snippet .output {
+	border-left: 3px solid black;
+	padding: 10px;
+	display: inline-block;
+	text-align: center;
+	width: 300px;
+	background: white;
+	min-height: 72px;
+}
+
+.snippet {
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+
+	border-radius: 15px;
+	margin: 30px auto;
+	position: relative;
+}
+
+.icons {
+	position: absolute;
+	top: -30px;
+	left: -55px;
+}
+
+.icons li {
+	background: url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/use_your_illusion.png) black;
+	border: 2px solid #CB0077;
+	color: #CB0077;
+	margin: 3px 0;
+	padding: 5px;
+	text-align: center;
+	list-style: none;
+	
+	cursor: pointer;
+
+	-webkit-border-radius: 18px;
+	-moz-border-radius:    18px;
+	border-radius:         18px;
+
+	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow:    0 0 10px rgba(0, 0, 0, 0.75);
+	box-shadow:         0 0 10px rgba(0, 0, 0, 0.75);
+}
+
+.snippet .common {
+	padding:  20px 10px;
+	width:    500px;
+
+	-webkit-box-shadow: -7px 6px 5px rgba(29, 0, 10, 0.75);
+	-moz-box-shadow:    -7px 6px 5px rgba(29, 0, 10, 0.75);
+	box-shadow:         -7px 6px 5px rgba(29, 0, 10, 0.75);
+
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+
+	display: inline-block;
+}
+
+.snippet .left {
+	margin-left: 50px;
+	vertical-align: top;
+	position: relative;
+	z-index: 2;
+	border: 1px solid black;
+	background: url(http://subtlepatterns.com/patterns/square_bg.png) #84004D;
+	min-height: 160px;
+}
+
+.snippet .left .name {
+	display: block;
+	font-size:150%;
+	border: 4px solid #E5399E;
+	width: 300px;
+	text-align: center;
+	margin: 10px auto;
+	background: #E567B1;
+	padding: 10px;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+}
+
+.snippet .left pre, .snippet .left textarea {
+	width: 400px;
+	margin: 20px auto;
+	background: #E567B1;
+	padding: 6px;
+	border: 4px solid #E5399E;
+	text-align: center;
+	display: block;
+}
+
+.snippet .right {
+	vertical-align: top;
+	position: relative;
+	left: -40px;
+	top:  20px;
+	z-index: 1;
+	border: 1px solid black;
+	background:url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/pyramid.png) white;
+	padding-left: 50px;
+}
+
+.snippet .right .output {
+	padding: 8px;
+	margin: 10px;
+	background:white;
+	border: 4px solid #E5399E;
+	text-align:center;
+	font-size: 130%;
+}
+
+.clear {
+	clear: both;
+}
+

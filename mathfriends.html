@@ -1,0 +1,95 @@
+<head>
+	<title>Share math with your friends at MathFriends.com!</title>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+	<link href='http://fonts.googleapis.com/css?family=Capriola' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div class="pillar" id="header">     {{> header}}     </div>
+		<div                id="newsnippet"> {{> newsnippet}} </div>
+		<div class="pillar" id="body">       {{> body}}       </div>
+		<div                id="footer">     {{> footer}}     </div>
+	</div>
+</body>
+
+<template name="header">
+	{{> title}}
+	{{> examples}}
+	{{> mypastes}}
+	{{> search}}
+</template>
+
+<template name="newsnippet"> <h2> . o O ( <a href="#create">Create a new snippet!</a> ) ~ ❤ </h2> </template>
+
+<template name="examples"> <a class="header_item" id="examples" href="#examples"> Examples        </a> </template>
+<template name="mypastes"> <a class="header_item" id="mine"     href="#mine">     ❤ My Snippets ❤ </a> </template>
+<template name="search">   <a class="header_item" id="search"   href="#search">   Search          </a> </template>
+
+<template name="body">
+	{{#each snippets}}
+		{{#if is_open this}}
+			{{>snippet}}
+		{{/if}}
+		{{#if not_open this}}
+			{{>small_snippet}}
+		{{/if}}
+	{{/each}}
+</template>
+
+<template name="title">
+	<div class="header_item" id="title">
+		<h1>
+			<a href="http://mathfriends.com">
+				<span id="mf_title">\( \frac{ M \forall \top h } { f ( r ^ { i e } \Bbb N _ d \int_{me}^{you} ) } \)</span>
+				&nbsp; <span class="dot">.</span> <span class="c">c</span><span class="o">o</span><span class="m">m</span>
+			</a>
+		</h1>
+	</div>
+</template>
+
+<template name="footer">
+	<ul>
+		<li><a href="http://sordina.net">              <img src="/sordina.png" alt="sordina productoins logo" /></a></li>
+	</ul>
+	<ul>
+		<li><a href="http://www.mathjax.org">          <img src="/mathjax.png" alt="mathjax logo" /></a></li>
+		<li><a href="http://meteor.com">               <img src="/meteor.png"  alt="meteor logo" /></a></li>
+		<li><a href="http://jquery.com">               <img src="/jquery.png"  alt="jquery logo" /></a></li>
+	</ul>
+	<ul>
+		<li><a href="http://www.contextfreeart.org">   <img src="/context.png" alt="context free logo" /></a></li>
+		<li><a href="http://www.google.com/webfonts/"> <img src="/gwf.png"     alt="google web fonts logo" /></a></li>
+		<li><a href="http://subtlepatterns.com">       <img src="/subtle.png"  alt="subtle patterns logo" /></a></li>
+	</ul>
+</template>
+
+<template name="small_snippet">
+	<div class="small_snippet">
+		<div class="left">
+			<ul class="icons"> <li> + </li> </ul>
+			{{name}} </div><div class="output" id="output_{{_id}}">
+			$$ {{snippet}} $$
+			{{rendered _id}}
+		</div>
+	</div>
+</template>
+
+<template name="snippet">
+	<div class="snippet">
+		<div class="left common">
+			<ul class="icons">
+				<li class="heart"> ❤ </li>
+				<li class="close"> - </li>
+			</ul>
+			<input id="name_{{_id}}" class="name" name="name" value="{{name}}" />
+			<textarea id="input_{{_id}}">{{snippet}}</textarea>
+		</div>
+		<div class="right common">
+			<div class="output" id="output_{{_id}}">
+				$$ {{snippet}} $$
+				{{rendered _id}}
+			</div>
+		</div>
+	</div>
+</template>
