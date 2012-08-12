@@ -4,7 +4,8 @@
 //   timestamp: Date
 //   user:      String
 // }}
-Snippets = new Meteor.Collection("snippets");
+Snippets = new Meteor.Collection("snippets")
+Users    = new Meteor.Collection("users")
 
 Meteor.startup(function () {
 	if (Snippets.find().count() === 0) {
