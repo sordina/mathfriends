@@ -1,0 +1,28 @@
+startshape Heart
+
+background {b -1}
+
+rule Heart {
+	SQUARE{s 0.2 b 0 r 45 y -0.455 z 2 x 0.116}
+	SQUARE{s 0.2 b 0 r -45 y -0.455 z 2 x -0.116}
+	SQUARE{s 0.2 b 0 r 19 z 2 y 0.585 x -0.35}
+	SQUARE{s 0.2 b 0 r -19 z 2 y 0.585 x 0.35}
+	HeartBits{s 0.6 r 45 h 1 b 1 sat 1}
+	A{ z 1 b 1}
+}
+
+rule Line {
+	SQUARE{s 1 0.1}
+}
+
+rule HeartBits {
+	CIRCLE{x 0.5}
+	CIRCLE{y 0.5}
+	SQUARE{}
+}
+
+rule A {
+	Line{y 0.1 s 0.4 1}
+	Line{r 70   x 0.15 y 0.03}
+	Line{r 110 x -0.15 y 0.03}
+}
