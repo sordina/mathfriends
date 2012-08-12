@@ -2,36 +2,75 @@
 	<title>Share math with your friends at MathFriends.com!</title>
 	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
 	<link href='http://fonts.googleapis.com/css?family=Capriola' rel='stylesheet' type='text/css'>
+
+	<meta property="og:title" content="Mathfriends!" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://mathfriends.meteor.com" />
+	<meta property="og:image" content="http://mathfriends.meteor.com/mathfriends.png" />
+	<meta property="og:site_name" content="MathFriends!" />
+	<meta property="fb:admins" content="679550193" />
+	<meta property="og:description" content="A site for sharing snippets of Math using Mathjax and Meteor"/>
 </head>
 
 <body>
 	<div id="wrapper">
-		<div class="pillar" id="header">     {{> header}}     </div>
-		<div                id="newsnippet"> {{> newsnippet}} </div>
-		<div class="pillar" id="body">       {{> body}}       </div>
-		<div                id="footer">     {{> footer}}     </div>
+		<div class="pillar" id="header">     {{> header}}        </div>
+		                                     {{> body_or_login}}
+		<div                id="footer">     {{> footer}}        </div>
 	</div>
+	{{> facebook}}
 </body>
 
 <template name="header">
 	{{> title}}
 	{{> examples}}
 	{{> mypastes}}
-	{{> search}}
+	{{> logout}}
+</template>
+
+<template name="facebook">
+<iframe
+	class="fb-like"
+	src="https://www.facebook.com/plugins/like.php?href=http://mathfriends.meteor.com"
+	scrolling="no"
+	frameborder="0"
+	style="border:none; width:450px; height:80px"></iframe>
+</template>
+
+<template name="body_or_login">
+	{{#if logged_in}}
+		<div id="newsnippet"> {{> newsnippet}} </div>
+		<div class="pillar" id="body"> {{> body}} </div>
+	{{else}}
+		<div id="login"> {{> login}} </div>
+		{{focus_login}}
+	{{/if}}
+</template>
+
+<template name="login">
+	<h2> . o O ( Login ~
+		<span class="login_label">User:</span>
+		<input id="login_name" type="text" name="username" value="username" />
+		<span class="login_label">Pass:</span>
+		<input id="login_pass" type="password" name="password" value="password" />
+	) ~ ❤ </h2>
 </template>
 
 <template name="newsnippet"> <h2> . o O ( <a href="#create">Create a new snippet!</a> ) ~ ❤ </h2> </template>
 
 <template name="examples"> <a class="header_item" id="examples" href="#examples"> Examples        </a> </template>
 <template name="mypastes"> <a class="header_item" id="mine"     href="#mine">     ❤ My Snippets ❤ </a> </template>
-<template name="search">   <a class="header_item" id="search"   href="#search">   Search          </a> </template>
+<template name="logout">
+	{{#if logged_in}}
+		<a class="header_item" id="out" href="#logout"> {{ logged_in }} - logout</a>
+	{{/if}}
+</template>
 
 <template name="body">
 	{{#each snippets}}
 		{{#if is_open this}}
 			{{>snippet}}
-		{{/if}}
-		{{#if not_open this}}
+		{{else}}
 			{{>small_snippet}}
 		{{/if}}
 	{{/each}}
@@ -40,9 +79,9 @@
 <template name="title">
 	<div class="header_item" id="title">
 		<h1>
-			<a href="http://mathfriends.com">
-				<span id="mf_title">\( \frac{ M \forall \top h } { f ( r ^ { i e } \Bbb N _ d \int_{me}^{you} ) } \)</span>
-				&nbsp; <span class="dot">.</span> <span class="c">c</span><span class="o">o</span><span class="m">m</span>
+			<a href="http://mathfriends.meteor.com">
+				<span id="mf_title">\( \frac{ M \forall \top h } { f ( r ^ { i e } \Bbb N _ d \int_{me}^{you} ) } \)</span> <br />
+				<span class="dot">.</span> meteor <span class="dot">.</span> <span class="c">c</span><span class="o">o</span><span class="m">m</span>
 			</a>
 		</h1>
 	</div>

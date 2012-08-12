@@ -26,23 +26,40 @@ body {
 }
 
 #title {
-	width: 400px;
+	width: 300px;
+	padding: 0;
 }
 
 #header #title a {
 	color: #f3f3f3;
 }
 
+.fb-like {
+	position: absolute;
+	top;0;
+	right:0;
+	width: 300px !important;
+	height: 25px !important;
+	background: white;
+	margin: 10px;
+	padding: 10px;
+
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+
+	border: 1px solid black;
+}
+
 #wrapper {
 	background: transparent url(/stripe.png) no-repeat -240px -30px;
-	min-height: 1000px;
 	position: absolute;
 	min-width: 100%;
 	min-height: 100%;
 	padding-bottom: 400px;
 }
 
-#newsnippet {
+#newsnippet, #login {
 	background: black;
 	border-top: #fafafa 1px dashed;
 	border-bottom: #fafafa 1px dashed;
@@ -51,6 +68,17 @@ body {
 	text-align: center;
 	text-shadow: #FFF 0px 0px 1px;
 	margin: 20px 0 60px 0;
+}
+
+#newsnippet a {
+	text-decoration: none;
+	color: #E5399E;
+	font-weight: bold;
+}
+
+#login input {
+	font-size: 120%;
+	text-align: center;
 }
 
 #footer img {
@@ -86,14 +114,8 @@ body {
 	margin: 0 auto;
 }
 
-#newsnippet a {
-	text-decoration: none;
-	color: #E5399E;
-	font-weight: bold;
-}
-
 #header {
-	margin-top: 30px;
+	margin-top: 10px;
 }
 
 .header_item a:hover, .header_item:hover, .header_item *:hover, a:hover {

@@ -1,0 +1,22 @@
+startshape Start
+
+background {a -1}
+
+rule Start {
+	30 * {s 0.9 x 8 h 15} Begin{}
+}
+
+rule Begin { V1{sat 0.9 b 0.9 hue 330 } }
+rule Begin 0.2 {
+	Begin {s 0.7 x 3.3}
+	Begin {s 0.4 x -2}
+}
+
+rule Circles { 3 * { x 1.2 hue 15 s 1.1 } CIRCLE{} }
+rule Circles 0.1 { Circles{hue 15} }
+rule Circles 0.01 { Circles{} V1{r 90 s 0.7} V1{r 90 f 180 s 0.5} }
+
+rule V1 {
+	Circles{}
+	V1{r 1 s 0.95 y 1}
+}
