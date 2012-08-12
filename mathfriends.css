@@ -21,6 +21,10 @@ body {
 	padding: 0;
 }
 
+#body {
+	text-align: center;
+}
+
 #mf_title {
 	font-size: 130%;
 }
