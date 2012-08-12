@@ -14,7 +14,7 @@ var renderer = function(arg) { Meteor.defer(function(){
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub,"output_" + arg ]);
 })}
 
-Template.body_or_login.focus_login = function() { Meteor.defer(function(){
+Template.new_or_login.focus_login = function() { Meteor.defer(function(){
 	jQuery("#login_name").focus()
 })}
 
@@ -22,7 +22,7 @@ Template.snippet.rendered         = renderer
 Template.small_snippet.rendered   = renderer
 
 Template.logout.logged_in          = logged_in
-Template.body_or_login.logged_in   = logged_in
+Template.new_or_login.logged_in    = logged_in
 
 Template.body.is_open   = function (snippet) { return snippet.is_open; }
 Template.body.snippets  = function ()        { return Snippets.find({},{sort : {timestamp:-1}})}

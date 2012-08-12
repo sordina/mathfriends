@@ -15,7 +15,8 @@
 <body>
 	<div id="wrapper">
 		<div class="pillar" id="header">     {{> header}}        </div>
-		                                     {{> body_or_login}}
+		                                     {{> new_or_login}}
+		<div class="pillar" id="body">       {{> body}}          </div>
 		<div                id="footer">     {{> footer}}        </div>
 	</div>
 	{{> facebook}}
@@ -37,10 +38,9 @@
 	style="border:none; width:450px; height:80px"></iframe>
 </template>
 
-<template name="body_or_login">
+<template name="new_or_login">
 	{{#if logged_in}}
 		<div id="newsnippet"> {{> newsnippet}} </div>
-		<div class="pillar" id="body"> {{> body}} </div>
 	{{else}}
 		<div id="login"> {{> login}} </div>
 		{{focus_login}}
