@@ -66,12 +66,18 @@
 
 <template name="small_snippet">
 	<div class="small_snippet">
-		<div class="left">
-			<ul class="icons"> <li> + </li> </ul>
-			{{name}} </div><div class="output" id="output_{{_id}}">
-			$$ {{snippet}} $$
-			{{rendered _id}}
-		</div>
+		<ul class="icons"> <li> + </li> </ul>
+		<table>
+			<tr>
+				<td class="left">
+					{{name}}
+				</td>
+				<td class="output" id="output_{{_id}}">
+					$$ {{snippet}} $$
+				</td>
+			</tr>
+		</table>
+		{{rendered _id}}
 	</div>
 </template>
 

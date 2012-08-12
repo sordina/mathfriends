@@ -147,6 +147,10 @@ body {
 	border-bottom-left-radius: 15px;
 }
 
+.small_snippet table {
+	border-collapse: collapse;
+}
+
 .small_snippet .left {
 	padding: 10px 30px;
 	display: inline-block;
@@ -161,7 +165,7 @@ body {
 	text-align: center;
 	width: 300px;
 	background: white;
-	min-height: 72px;
+	min-height: 50px;
 }
 
 .snippet {
