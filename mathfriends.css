@@ -191,6 +191,7 @@ body {
 	width: 300px;
 	background: white;
 	min-height: 50px;
+	overflow: auto;
 }
 
 .snippet {
@@ -295,6 +296,7 @@ body {
 	border: 4px solid #E5399E;
 	text-align:center;
 	font-size: 130%;
+	overflow: auto;
 }
 
 .clear {

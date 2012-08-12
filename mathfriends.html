@@ -10,14 +10,15 @@
 	<meta property="og:site_name" content="MathFriends!" />
 	<meta property="fb:admins" content="679550193" />
 	<meta property="og:description" content="A site for sharing snippets of Math using Mathjax and Meteor"/>
+
 </head>
 
 <body>
 	<div id="wrapper">
-		<div class="pillar" id="header">     {{> header}}        </div>
-		                                     {{> new_or_login}}
-		<div class="pillar" id="body">       {{> body}}          </div>
-		<div                id="footer">     {{> footer}}        </div>
+		<div class="pillar" id="header"> {{> header}} </div>
+		{{> new_or_login}}
+		<div class="pillar" id="body">   {{> body}}   </div>
+		<div                id="footer"> {{> footer}} </div>
 	</div>
 	{{> facebook}}
 </body>
@@ -25,7 +26,7 @@
 <template name="header">
 	{{> title}}
 	{{> examples}}
-	{{> mypastes}}
+	{{> about}}
 	{{> logout}}
 </template>
 
@@ -33,9 +34,7 @@
 <iframe
 	class="fb-like"
 	src="https://www.facebook.com/plugins/like.php?href=http://mathfriends.meteor.com"
-	scrolling="no"
-	frameborder="0"
-	style="border:none; width:450px; height:80px"></iframe>
+	scrolling="no" ></iframe>
 </template>
 
 <template name="new_or_login">
@@ -58,8 +57,8 @@
 
 <template name="newsnippet"> <h2> . o O ( <a href="#create">Create a new snippet!</a> ) ~ ❤ </h2> </template>
 
-<template name="examples"> <a class="header_item" id="examples" href="#examples"> Examples        </a> </template>
-<template name="mypastes"> <a class="header_item" id="mine"     href="#mine">     ❤ My Snippets ❤ </a> </template>
+<template name="examples"> <a target="_blank" class="header_item" id="examples" href="http://www.mathjax.org/demos/tex-samples/"> Examples        </a> </template>
+<template name="about"> <a class="header_item" id="mine" href="#about"> ❤ About ❤ </a> </template>
 <template name="logout">
 	{{#if logged_in}}
 		<a class="header_item" id="out" href="#logout"> {{ logged_in }} - logout</a>
@@ -111,7 +110,7 @@
 			<tr>
 				<td class="left">
 					{{name}}
-					{{#if user}} <br/> &nbsp; &nbsp; <em>- {{user}}</em> {{/if}}
+					{{#if user}} <br/> <em>-&nbsp;{{user}}</em> {{/if}}
 				</td>
 				<td class="output" id="output_{{_id}}">
 					$$ {{snippet}} $$
