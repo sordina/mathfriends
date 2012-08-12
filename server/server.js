@@ -2,6 +2,7 @@
 //   name:      String
 //   snippet:   String
 //   timestamp: Date
+//   user:      String
 // }}
 Snippets = new Meteor.Collection("snippets");
 

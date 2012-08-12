@@ -38,7 +38,7 @@ Template.login.events = {
 Template.small_snippet.events = { 'click li': function() { Snippets.update({_id: this._id},{$set: {is_open:true }}) }}
 
 Template.newsnippet.events    = { 'click a':  function() {
-	Snippets.insert({name: "Update Me!", is_open:true, timestamp: (new Date().getTime()) })
+	Snippets.insert({name: "Update Me!", is_open:true, user: Session.get('user'), timestamp: (new Date().getTime()) })
 }}
 
 Template.snippet.events = {
