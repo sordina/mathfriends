@@ -139,6 +139,7 @@ body {
 
 #footer img {
 	border: 1px solid black;
+	max-width: 280px;
 }
 
 #footer li {
