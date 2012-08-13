@@ -39,6 +39,10 @@ body {
 }
 
 .fb-like {
+	-webkit-box-shadow: -7px 6px 5px rgba(29, 0, 10, 0.75);
+	-moz-box-shadow:    -7px 6px 5px rgba(29, 0, 10, 0.75);
+	box-shadow:         -7px 6px 5px rgba(29, 0, 10, 0.75);
+
 	position: absolute;
 	top;0;
 	right:0;
@@ -75,22 +79,35 @@ body {
 }
 
 #users {
+
+	-webkit-box-shadow: -7px 6px 5px rgba(29, 0, 10, 0.75);
+	-moz-box-shadow:    -7px 6px 5px rgba(29, 0, 10, 0.75);
+	box-shadow:         -7px 6px 5px rgba(29, 0, 10, 0.75);
+
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: white;
 	width: 180px;
-	border: 1px solid black;
+	border: 3px solid black;
 
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
+	-webkit-border-top-left-radius: 15px;
+	-webkit-border-top-right-radius: 15px;
+	-moz-border-radius-topleft: 15px;
+	-moz-border-radius-topright: 15px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+
+	overflow: hidden;
+
+	background: #E567B1;
 }
 
 #users ul {
+	border-top: 3px solid black;
 	margin: 0;
 	padding: 20px;
 	text-align: left;
+	background: white;
 }
 
 #users li {
@@ -101,6 +118,10 @@ body {
 
 #disqus_wrapper {
 
+	-webkit-box-shadow: -7px 6px 5px rgba(29, 0, 10, 0.75);
+	-moz-box-shadow:    -7px 6px 5px rgba(29, 0, 10, 0.75);
+	box-shadow:         -7px 6px 5px rgba(29, 0, 10, 0.75);
+
 	padding-top: 50px;
 	background-color: #fff;
 	background-color: rgba(255,255,255,0.9);
@@ -109,6 +130,7 @@ body {
 	width: 700px;
 
 	margin: 80px auto 10px auto;
+
 
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
