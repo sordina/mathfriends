@@ -43,7 +43,7 @@ body {
 	top;0;
 	right:0;
 	width: 300px !important;
-	height: 25px !important;
+	height: 70px !important;
 	background: white;
 	margin: 10px;
 	padding: 10px;
@@ -64,6 +64,55 @@ body {
 	min-width: 100%;
 	min-height: 100%;
 	padding-bottom: 400px;
+}
+
+#body {
+	position: relative;
+}
+
+#snippets {
+	padding-left: 200px;
+}
+
+#users {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: white;
+	width: 180px;
+	border: 1px solid black;
+
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+#users ul {
+	margin: 0;
+	padding: 20px;
+	text-align: left;
+}
+
+#users li {
+	list-style: none;
+	margin: 4px;
+	padding: 0;
+}
+
+#disqus_wrapper {
+
+	padding-top: 50px;
+	background-color: #fff;
+	background-color: rgba(255,255,255,0.9);
+
+	padding: 50px;
+	width: 700px;
+
+	margin: 80px auto 10px auto;
+
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
 }
 
 #newsnippet, #login {

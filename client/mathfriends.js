@@ -19,6 +19,23 @@ Template.new_or_login.focus_login = function() { Meteor.defer(function(){
 	jQuery("#login_name").focus()
 })}
 
+Template.users.users = function(){ return Users.find({},{sort: {name:1}}) }
+
+Template.disqus.disqus_script = function(){
+	jQuery(function(){
+		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+		var disqus_shortname = 'mathfriends';
+		var disqus_developer = 1;
+
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	})
+}
+
 Template.snippet.rendered       = renderer
 Template.small_snippet.rendered = renderer
 

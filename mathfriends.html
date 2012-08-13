@@ -17,7 +17,10 @@
 	<div id="wrapper">
 		<div class="pillar" id="header"> {{> header}} </div>
 		{{> new_or_login}}
-		<div class="pillar" id="body">   {{> body}}   </div>
+		<div class="pillar" id="body">
+			{{> body}}
+			{{> disqus}}
+		</div>
 		<div                id="footer"> {{> footer}} </div>
 	</div>
 	{{> facebook}}
@@ -31,10 +34,18 @@
 </template>
 
 <template name="facebook">
-<iframe
-	class="fb-like"
-	src="https://www.facebook.com/plugins/like.php?href=http://mathfriends.meteor.com"
-	scrolling="no" ></iframe>
+	<iframe
+		class="fb-like"
+		src="https://www.facebook.com/plugins/like.php?href=http://mathfriends.meteor.com"
+		scrolling="no" ></iframe>
+</template>
+
+<template name="disqus">
+	<div id="disqus_wrapper">
+		<div id="disqus_thread"></div>
+		{{disqus_script}}
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
 </template>
 
 <template name="new_or_login">
@@ -66,13 +77,27 @@
 </template>
 
 <template name="body">
-	{{#each snippets}}
-		{{#if is_open this}}
-			{{>snippet}}
-		{{else}}
-			{{>small_snippet}}
-		{{/if}}
-	{{/each}}
+	<div id="users">
+		{{>users}}
+	</div>
+	<div id="snippets">
+		{{#each snippets}}
+			{{#if is_open this}}
+				{{>snippet}}
+			{{else}}
+				{{>small_snippet}}
+			{{/if}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="users">
+	<h3>Users</h3>
+	<ul>
+		{{#each users}}
+			<li>{{name}}</li>
+		{{/each}}
+	</ul>
 </template>
 
 <template name="title">
