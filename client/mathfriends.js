@@ -25,7 +25,7 @@ Template.disqus.disqus_script = function(){
 	jQuery(function(){
 		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 		var disqus_shortname = 'mathfriends';
-		var disqus_developer = 1;
+		// var disqus_developer = 1;
 
 		/* * * DON'T EDIT BELOW THIS LINE * * */
 		(function() {
