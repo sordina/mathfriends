@@ -280,7 +280,7 @@ body {
 
 .small_snippet .output {
 	border-left: 3px solid black;
-	padding: 10px;
+	padding: 0 10px;
 	text-align: center;
 	background: white;
 	overflow: auto;
