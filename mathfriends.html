@@ -80,6 +80,9 @@
 		{{>users}}
 	</div>
 	<div id="snippets">
+		{{#if no_snippets}}
+			<h3 id="nsf">No Snippets Found</h2>
+		{{/if}}
 		{{#each snippets}}
 			{{#if is_open this}}
 				{{>snippet}}
@@ -95,7 +98,11 @@
 	<h3>Users</h3>
 	<ul>
 		{{#each users}}
-			<li>{{name}}</li>
+			{{#if is_selected name}}
+				<li class="selected">{{name}}</li>
+			{{else}}
+				<li>{{name}}</li>
+			{{/if}}
 		{{/each}}
 	</ul>
 </template>

@@ -7,6 +7,13 @@ Snippets = new Meteor.Collection("snippets");
 Users    = new Meteor.Collection("users");
 
 
+Meteor.subscribe("users")
+
+Meteor.autosubscribe(function () {
+	Meteor.subscribe("snippets", Session.get("userfilter"));
+});
+
+
 // Templates
 
 Template.body.snippets = function () { return Snippets.find() };
@@ -20,6 +27,17 @@ Template.new_or_login.focus_login = function() { Meteor.defer(function(){
 })}
 
 Template.users.users = function(){ return Users.find({},{sort: {name:1}}) }
+
+Template.users.is_selected = function(name) { return Session.get('userfilter') == name }
+
+Template.users.events = {
+	'click li' : function(e) {
+		var pre = Session.get("userfilter")
+		var val = e.srcElement.innerText
+		console.log(escape(val))
+		Session.set("userfilter", val === pre ? null : val)
+	}
+}
 
 Template.disqus.disqus_script = function(){
 	jQuery(function(){
@@ -42,8 +60,9 @@ Template.small_snippet.rendered = renderer
 Template.logout.logged_in       = logged_in
 Template.new_or_login.logged_in = logged_in
 
-Template.body.is_open  = function (snippet) { return snippet.is_open; }
-Template.body.snippets = function ()        { return Snippets.find({},{sort : {timestamp:-1}})}
+Template.body.is_open     = function (snippet) { return snippet.is_open; }
+Template.body.snippets    = function ()        { return Snippets.find({},{sort : {timestamp:-1}})}
+Template.body.no_snippets = function ()        { return Snippets.find({}).count() == 0 }
 
 Template.logout.events = { 'click a': function(e) { Session.set('user',null) } }
 

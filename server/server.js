@@ -1,11 +1,15 @@
-// {{
-//   name:      String
-//   snippet:   String
-//   timestamp: Date
-//   user:      String
-// }}
-Snippets = new Meteor.Collection("snippets")
 Users    = new Meteor.Collection("users")
+Snippets = new Meteor.Collection("snippets")
+
+Meteor.publish("users", function (userfilter) { return Users.find() } )
+
+Meteor.publish("snippets", function (userfilter) {
+	if(userfilter) {
+		return Snippets.find({user: userfilter})
+	} else {
+		return Snippets.find({})
+	}
+});
 
 Meteor.startup(function () {
 	if (Snippets.find().count() === 0) {
