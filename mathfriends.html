@@ -84,7 +84,7 @@
 			<h3 id="nsf">No Snippets Found</h2>
 		{{/if}}
 		{{#each snippets}}
-			{{#if is_open this}}
+			{{#if expanded this._id}}
 				{{>snippet}}
 			{{else}}
 				{{>small_snippet}}

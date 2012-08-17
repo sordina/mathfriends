@@ -16,8 +16,6 @@ Meteor.autosubscribe(function () {
 
 // Templates
 
-Template.body.snippets = function () { return Snippets.find() };
-
 var renderer = function(arg) { Meteor.defer(function(){
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub,"output_" + arg ]);
 })}
@@ -60,9 +58,11 @@ Template.small_snippet.rendered = renderer
 Template.logout.logged_in       = logged_in
 Template.new_or_login.logged_in = logged_in
 
-Template.body.is_open     = function (snippet) { return snippet.is_open; }
-Template.body.snippets    = function ()        { return Snippets.find({},{sort : {timestamp:-1}})}
-Template.body.no_snippets = function ()        { return Snippets.find({}).count() == 0 }
+
+Template.body.snippets    = function()          { return Snippets.find() };
+Template.body.expanded    = function(snippetid) { return Session.get('expanded_' + snippetid)}
+Template.body.snippets    = function()          { return Snippets.find({},{sort : {timestamp:-1}})}
+Template.body.no_snippets = function()          { return Snippets.find({}).count() == 0 }
 
 Template.logout.events = { 'click a': function(e) { Session.set('user',null) } }
 
@@ -87,14 +87,14 @@ Template.login.events = {
 	'focus input': function(e) { jQuery(e.target).val('') }
 }
 
-Template.small_snippet.events = { 'click li': function() { Snippets.update({_id: this._id},{$set: {is_open:true }}) }}
+Template.small_snippet.events = { 'click li': function() { Session.set('expanded_' + this._id, true) } }
 
 Template.newsnippet.events    = { 'click a':  function() {
 	Snippets.insert({name: "Update Me!", is_open:true, user: Session.get('user'), timestamp: (new Date().getTime()) })
 }}
 
 Template.snippet.events = {
-	'click .close':   function() { Snippets.update({_id: this._id}, {$set: {is_open:false}}) },
+	'click .close':   function() { Session.set('expanded_' + this._id, false) },
 	'keyup input':    function() { Snippets.update({_id: this._id}, {$set: {name: jQuery("#name_"+this._id).val() }}) },
 	'keyup textarea': function() {
 		var input_text = jQuery("#input_"+this._id).val()
