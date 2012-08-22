@@ -66,6 +66,8 @@ Template.body.no_snippets = function()          { return Snippets.find({}).count
 
 Template.logout.events = { 'click a': function(e) { Session.set('user',null) } }
 
+var previouspass = null
+
 Template.login.events = {
 	'keydown input#login_name': function(e) { if(e.keyCode == 13) { jQuery("#login_pass").focus() }},
 	'keydown input#login_pass': function(e) { if(e.keyCode == 13) {
@@ -76,11 +78,18 @@ Template.login.events = {
 			if(existing.pass === pass) { Session.set('user', name) }
 			else {alert('wrong password')}
 		} else {
-			if(pass === prompt("Please confirm your password for the new user " + name)) {
-				Users.insert({name: name, pass: pass})
-				Session.set('user', name)
-			} else {
-				alert("New user creation aborted.")
+			if(previouspass) {
+				if(pass === previouspass) {
+					Users.insert({name: name, pass: pass})
+					Session.set('user', name)
+				} else {
+					alert("New user creation aborted.")
+				}
+				previouspass = null
+			}
+			else {
+				alert("Please confirm your password for the new user " + name)
+				previouspass = pass
 			}
 		}
 	}},
