@@ -99,7 +99,8 @@ Template.login.events = {
 Template.small_snippet.events = { 'click li': function() { Session.set('expanded_' + this._id, true) } }
 
 Template.newsnippet.events    = { 'click a':  function() {
-	Snippets.insert({name: "Update Me!", is_open:true, user: Session.get('user'), timestamp: (new Date().getTime()) })
+	var sid = Snippets.insert({name: "Update Me!", user: Session.get('user'), timestamp: (new Date().getTime()) })
+	Session.set('expanded_' + sid, true)
 }}
 
 Template.snippet.events = {
