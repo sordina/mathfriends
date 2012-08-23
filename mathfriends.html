@@ -1,6 +1,7 @@
 <head>
 	<title>Share math with your friends at MathFriends.com!</title>
 	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+
 	<link href='http://fonts.googleapis.com/css?family=Capriola' rel='stylesheet' type='text/css'>
 
 	<meta property="og:title" content="Mathfriends!" />
@@ -51,6 +52,7 @@
 	{{#if logged_in}}
 		<div id="newsnippet"> {{> newsnippet}} </div>
 	{{else}}
+		<!-- {> loginButtons} -->
 		<div id="login"> {{> login}} </div>
 		{{focus_login}}
 	{{/if}}
@@ -82,6 +84,9 @@
 	<div id="snippets">
 		{{#if no_snippets}}
 			<h3 id="nsf">No Snippets Found</h2>
+		{{/if}}
+		{{#if single_snippet}}
+			<h3 id="nsf"><a href="/">View All Snippets!</a></h2>
 		{{/if}}
 		{{#each snippets}}
 			{{#if expanded this._id}}
@@ -137,7 +142,10 @@
 
 <template name="small_snippet">
 	<div class="small_snippet">
-		<ul class="icons"> <li> + </li> </ul>
+		<ul class="icons">
+			<li class="heart"> <a href="/{{_id}}"> ❤ </a> </li>
+			<li class="open"> + </li>
+		</ul>
 		<table>
 			<tr>
 				<td class="left">
@@ -157,7 +165,7 @@
 	<div class="snippet">
 		<div class="left common">
 			<ul class="icons">
-				<li class="heart"> ❤ </li>
+				<li class="heart"> <a href="/{{_id}}"> ❤ </a> </li>
 				<li class="close"> - </li>
 			</ul>
 			<input id="name_{{_id}}" class="name" name="name" value="{{name}}" />

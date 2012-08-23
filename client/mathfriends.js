@@ -10,7 +10,7 @@ Users    = new Meteor.Collection("users");
 Meteor.subscribe("users")
 
 Meteor.autosubscribe(function () {
-	Meteor.subscribe("snippets", Session.get("userfilter"));
+	Meteor.subscribe("snippets", Session.get("userfilter"), Session.get("snippetfilter"));
 });
 
 
@@ -59,10 +59,11 @@ Template.logout.logged_in       = logged_in
 Template.new_or_login.logged_in = logged_in
 
 
-Template.body.snippets    = function()          { return Snippets.find() };
-Template.body.expanded    = function(snippetid) { return Session.get('expanded_' + snippetid)}
-Template.body.snippets    = function()          { return Snippets.find({},{sort : {timestamp:-1}})}
-Template.body.no_snippets = function()          { return Snippets.find({}).count() == 0 }
+Template.body.snippets       = function()          { return Snippets.find() };
+Template.body.expanded       = function(snippetid) { return Session.get('expanded_' + snippetid)}
+Template.body.snippets       = function()          { return Snippets.find({},{sort : {timestamp:-1}})}
+Template.body.no_snippets    = function()          { return Snippets.find({}).count() == 0 }
+Template.body.single_snippet = function()          { return Session.get('snippetfilter')}
 
 Template.logout.events = { 'click a': function(e) { Session.set('user',null) } }
 
@@ -96,7 +97,7 @@ Template.login.events = {
 	'focus input': function(e) { jQuery(e.target).val('') }
 }
 
-Template.small_snippet.events = { 'click li': function() { Session.set('expanded_' + this._id, true) } }
+Template.small_snippet.events = { 'click li.open': function() { Session.set('expanded_' + this._id, true) } }
 
 Template.newsnippet.events    = { 'click a':  function() {
 	var sid = Snippets.insert({name: "Update Me!", user: Session.get('user'), timestamp: (new Date().getTime()) })

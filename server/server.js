@@ -3,8 +3,10 @@ Snippets = new Meteor.Collection("snippets")
 
 Meteor.publish("users", function (userfilter) { return Users.find() } )
 
-Meteor.publish("snippets", function (userfilter) {
-	if(userfilter) {
+Meteor.publish("snippets", function (userfilter, snippetfilter) {
+	if(snippetfilter) {
+		return Snippets.find({_id: snippetfilter})
+	} else if(userfilter) {
 		return Snippets.find({user: userfilter})
 	} else {
 		return Snippets.find({})

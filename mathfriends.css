@@ -4,6 +4,9 @@
  * E5399E - Pastel Pink
  * E567B1 - Light  Pink */
 
+/* Meteor */
+.madewith_badge {margin-right: 380px; margin-top: 40px; }
+
 /* FONTS */
 
 h1, h2, h3, .left .name, .header_item {
@@ -112,6 +115,11 @@ body {
 
 #users .selected {
 	background: #E567B1;
+}
+
+#nsf a {
+	text-decoration: none;
+	color: black;
 }
 
 #nsf {
@@ -301,6 +309,11 @@ body {
 	position: absolute;
 	top: -30px;
 	left: -55px;
+}
+
+.icons li a {
+	text-decoration: none;
+	color: #CB0077;
 }
 
 .icons li {
