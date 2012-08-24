@@ -4,11 +4,24 @@
  * E5399E - Pastel Pink
  * E567B1 - Light  Pink */
 
+/* Login Buttons Package */
+#login-buttons {
+	display: inline-block !important;
+}
+
+#login-buttons .login-button, #login-buttons .login-buttons-logout {
+	float: none;
+	height: auto;
+	line-height: auto;
+	padding: 3px;
+	display: inline-block;
+	vertical-align: bottom ;
+}
+
 /* Meteor */
-.madewith_badge {margin-right: 380px; margin-top: 40px; }
+.madewith_badge {margin-right: 350px; margin-top: 37px; }
 
 /* FONTS */
-
 h1, h2, h3, .left .name, .header_item {
 	font-family: 'Capriola', sans-serif;
 }

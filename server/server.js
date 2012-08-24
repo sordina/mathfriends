@@ -1,7 +1,4 @@
-Users    = new Meteor.Collection("users")
-Snippets = new Meteor.Collection("snippets")
-
-Meteor.publish("users", function (userfilter) { return Users.find() } )
+Meteor.publish("users", function (userfilter) { return MathUsers.find() } )
 
 Meteor.publish("snippets", function (userfilter, snippetfilter) {
 	if(snippetfilter) {
@@ -22,3 +19,5 @@ Meteor.startup(function () {
 		})
 	}
 });
+
+Meteor.accounts.facebook.setSecret("b63693b7202408a7595958815bf85e13")

@@ -1,13 +1,11 @@
 // Session Stuff
-var logged_in = function() { return Session.get('user') }
+var logged_in = function() {
+	var user = Meteor.user()
+	var name = user ? user.name ? user.name.match(/\S+/)[0] : null : null
+	return name
+}
 
-
-// Collections and subscriptions
-Snippets = new Meteor.Collection("snippets");
-Users    = new Meteor.Collection("users");
-
-
-Meteor.subscribe("users")
+Meteor.subscribe("mathusers")
 
 Meteor.autosubscribe(function () {
 	Meteor.subscribe("snippets", Session.get("userfilter"), Session.get("snippetfilter"));
@@ -24,7 +22,7 @@ Template.new_or_login.focus_login = function() { Meteor.defer(function(){
 	jQuery("#login_name").focus()
 })}
 
-Template.users.users = function(){ return Users.find({},{sort: {name:1}}) }
+Template.users.users = function(){ return MathUsers.find({},{sort: {name:1}}) }
 
 Template.users.is_selected = function(name) { return Session.get('userfilter') == name }
 
@@ -65,7 +63,7 @@ Template.body.snippets       = function()          { return Snippets.find({},{so
 Template.body.no_snippets    = function()          { return Snippets.find({}).count() == 0 }
 Template.body.single_snippet = function()          { return Session.get('snippetfilter')}
 
-Template.logout.events = { 'click a': function(e) { Session.set('user',null) } }
+Template.logout.events = { 'click a': function(e) { Meteor.logout() } }
 
 var previouspass = null
 
@@ -74,14 +72,14 @@ Template.login.events = {
 	'keydown input#login_pass': function(e) { if(e.keyCode == 13) {
 		var name     = jQuery("#login_name").val()
 		var pass     = jQuery("#login_pass").val()
-		var existing = Users.findOne({name: name})
+		var existing = MathUsers.findOne({name: name})
 		if(existing) {
 			if(existing.pass === pass) { Session.set('user', name) }
 			else {alert('wrong password')}
 		} else {
 			if(previouspass) {
 				if(pass === previouspass) {
-					Users.insert({name: name, pass: pass})
+					MathUsers.insert({name: name, pass: pass})
 					Session.set('user', name)
 				} else {
 					alert("New user creation aborted.")

@@ -1,8 +1,9 @@
 var Router = Backbone.Router.extend({
 
 	routes: {
-		"":         "root",
-		":snippet": "snippet"
+		"":                 "root",
+		":whatever":        "root",
+		"snippet/:snippet": "snippet"
 	},
 
 	root: function () {

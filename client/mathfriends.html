@@ -21,7 +21,7 @@
 		<div class="pillar" id="body">
 			{{> body}}
 		</div>
-		<div                id="footer"> {{> footer}} </div>
+		<div id="footer"> {{> footer}} </div>
 	</div>
 	{{> facebook}}
 </body>
@@ -52,24 +52,18 @@
 	{{#if logged_in}}
 		<div id="newsnippet"> {{> newsnippet}} </div>
 	{{else}}
-		<!-- {> loginButtons} -->
 		<div id="login"> {{> login}} </div>
 		{{focus_login}}
 	{{/if}}
 </template>
 
 <template name="login">
-	<h2> . o O ( Login ~
-		<span class="login_label">User:</span>
-		<input id="login_name" type="text" name="username" value="username" />
-		<span class="login_label">Pass:</span>
-		<input id="login_pass" type="password" name="password" value="password" />
-	) ~ ❤ </h2>
+	<h2> {{> loginButtons}} ~ ❤ </h2>
 </template>
 
 <template name="newsnippet"> <h2> . o O ( <a href="#create">Create a new snippet!</a> ) ~ ❤ </h2> </template>
 
-<template name="examples"> <a target="_blank" class="header_item" id="examples" href="http://www.mathjax.org/demos/tex-samples/"> Examples        </a> </template>
+<template name="examples"> <a target="_blank" class="header_item" id="examples" href="http://www.mathjax.org/demos/tex-samples/"> Latex Examples        </a> </template>
 <template name="about"> <a class="header_item" id="mine" href="#about"> ❤ About ❤ </a> </template>
 <template name="logout">
 	{{#if logged_in}}
@@ -143,7 +137,7 @@
 <template name="small_snippet">
 	<div class="small_snippet">
 		<ul class="icons">
-			<li class="heart"> <a href="/{{_id}}"> ❤ </a> </li>
+			<li class="heart"> <a href="/snippet/{{_id}}"> ❤ </a> </li>
 			<li class="open"> + </li>
 		</ul>
 		<table>
@@ -165,7 +159,7 @@
 	<div class="snippet">
 		<div class="left common">
 			<ul class="icons">
-				<li class="heart"> <a href="/{{_id}}"> ❤ </a> </li>
+				<li class="heart"> <a href="/snippet/{{_id}}"> ❤ </a> </li>
 				<li class="close"> - </li>
 			</ul>
 			<input id="name_{{_id}}" class="name" name="name" value="{{name}}" />
