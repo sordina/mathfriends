@@ -66,6 +66,9 @@ Template.disqus.disqus_script = function(){
 
 Template.snippet.rendered       = renderer
 Template.small_snippet.rendered = renderer
+Template.small_snippet.username = function() {
+	return display_name(Meteor.users.findOne({_id: this.user}))
+}
 
 Template.logout.logged_in       = logged_in
 Template.new_or_login.logged_in = logged_in
