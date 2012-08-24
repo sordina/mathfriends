@@ -1,14 +1,16 @@
-Meteor.publish("users", function (userfilter) { return MathUsers.find() } )
-
 Meteor.publish("snippets", function (userfilter, snippetfilter) {
 	if(snippetfilter) {
 		return Snippets.find({_id: snippetfilter})
 	} else if(userfilter) {
-		return Snippets.find({user: userfilter})
+		return Snippets.find({user: userfilter.replace(/^userid_/,'')})
 	} else {
 		return Snippets.find({})
 	}
 });
+
+Meteor.publish("users", function() {
+	return Meteor.users.find()
+})
 
 Meteor.startup(function () {
 	if (Snippets.find().count() === 0) {

@@ -97,10 +97,10 @@
 	<h3>Users</h3>
 	<ul>
 		{{#each users}}
-			{{#if is_selected name}}
-				<li class="selected">{{name}}</li>
+			{{#if is_selected _id}}
+				<li class="selected">{{display_name this}}</li>
 			{{else}}
-				<li>{{name}}</li>
+				<li id="userid_{{_id}}">{{display_name this}}</li>
 			{{/if}}
 		{{/each}}
 	</ul>

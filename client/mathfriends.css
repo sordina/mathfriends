@@ -9,6 +9,28 @@
 	display: inline-block !important;
 }
 
+#login-dropdown-list {
+	right: auto;
+	left: -300px;
+	top: -50px;
+	width: 700px;
+	background:#666;
+	border: 3px solid black;
+	color: black;
+}
+
+#login-buttons-Facebook {
+	width: 300px;
+}
+
+#out {
+	width: auto;
+	min-width: 180px;
+	max-width: 300px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
 #login-buttons .login-button, #login-buttons .login-buttons-logout {
 	float: none;
 	height: auto;
