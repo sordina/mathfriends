@@ -2,6 +2,7 @@ var Router = Backbone.Router.extend({
 
 	routes: {
 		"":                 "root",
+		"about":            "about",
 		":whatever":        "root",
 		"snippet/:snippet": "snippet"
 	},
@@ -9,6 +10,8 @@ var Router = Backbone.Router.extend({
 	root: function () {
 		Session.set('snippetfilter', null)
 	},
+
+	about: about,
 
 	snippet: function (sid) {
 		Session.set('snippetfilter', sid)

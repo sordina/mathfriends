@@ -1,7 +1,9 @@
 
 // Permissions
 //
-Snippets.allow({update: function(userid,docs,fields,modifier){
+Snippets.allow({
+	insert: function() {return true},
+	update: function(userid,docs,fields,modifier){
 	try {
 		fields.forEach(function(field){ if(field == 'user')    { throw false } })
 		docs.forEach(  function(doc)  { if(doc.user != userid) { throw false } })
