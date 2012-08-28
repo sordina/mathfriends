@@ -11,7 +11,6 @@ var Router = Backbone.Router.extend({
 	},
 
 	snippet: function (sid) {
-		console.log("Routing for snippet " + sid)
 		Session.set('snippetfilter', sid)
 	}
 });

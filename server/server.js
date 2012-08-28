@@ -3,7 +3,8 @@
 //
 Snippets.allow({update: function(userid,docs,fields,modifier){
 	try {
-		docs.forEach(function(doc){ if(doc.user != userid) { throw "false" } })
+		fields.forEach(function(field){ if(field == 'user')    { throw false } })
+		docs.forEach(  function(doc)  { if(doc.user != userid) { throw false } })
 	} catch(e) {return false}
 
 	return true;
