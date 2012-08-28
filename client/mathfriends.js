@@ -67,6 +67,9 @@ Template.small_snippet.rendered = renderer
 Template.small_snippet.username = function() {
 	return display_name(Meteor.users.findOne({_id: this.user}))
 }
+Template.small_snippet.owner = function() {
+	return Meteor.user()._id == this.user
+}
 
 Template.logout.logged_in       = logged_in
 Template.new_or_login.logged_in = logged_in
@@ -79,8 +82,6 @@ Template.body.no_snippets    = function()          { return Snippets.find({}).co
 Template.body.single_snippet = function()          { return Session.get('snippetfilter')}
 
 Template.logout.events = { 'click a': function(e) { Meteor.logout() } }
-
-var previouspass = null
 
 Template.small_snippet.events = { 'click li.open': function() { Session.set('expanded_' + this._id, true) } }
 

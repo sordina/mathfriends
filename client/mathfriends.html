@@ -138,7 +138,9 @@
 	<div class="small_snippet">
 		<ul class="icons">
 			<li class="heart"> <a href="/snippet/{{_id}}"> ❤ </a> </li>
-			<li class="open"> + </li>
+			{{#if owner}}
+				<li class="open"> + </li>
+			{{/if}}
 		</ul>
 		<table>
 			<tr>
