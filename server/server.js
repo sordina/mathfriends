@@ -1,3 +1,16 @@
+
+// Permissions
+//
+Snippets.allow({update: function(userid,docs,fields,modifier){
+	try {
+		docs.forEach(function(doc){ if(doc.user != userid) { throw "false" } })
+	} catch(e) {return false}
+
+	return true;
+}})
+
+// Publications
+//
 Meteor.publish("snippets", function (userfilter, snippetfilter) {
 	if(snippetfilter) {
 		return Snippets.find({_id: snippetfilter})

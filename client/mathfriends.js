@@ -15,8 +15,6 @@ function display_name(user) {
 	return name
 }
 
-Meteor.subscribe("mathusers")
-
 Meteor.subscribe("users")
 
 Meteor.autosubscribe(function () {
