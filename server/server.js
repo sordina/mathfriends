@@ -6,7 +6,7 @@ Snippets.allow({
 	insert: function() {return true},
 	update: function(userid,docs,fields,modifier){
 
-		var user = Meteor.Users.findOne({_id : userid})
+		var user = Meteor.users.findOne({_id : userid})
 
 		if(user && user.godmode) {
 			return true
