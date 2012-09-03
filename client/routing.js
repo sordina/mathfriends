@@ -15,12 +15,6 @@ var Router = Backbone.Router.extend({
 
 	snippet: function (sid) {
 		Session.set('snippetfilter', sid)
-		setTimeout(function(){
-			var snippet = Snippets.findOne({_id: sid})
-			if(snippet) {
-				document.title = "" + snippet.name + " - MathFriends.meteor.com!"
-			}
-		}, 3000) // TODO: A timeout is silly... Find a way to use a callback somehow.
 	}
 });
 

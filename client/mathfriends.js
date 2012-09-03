@@ -26,6 +26,13 @@ Meteor.autosubscribe(function () {
 
 var renderer = function(arg) { Meteor.defer(function(){
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub,"output_" + arg ]);
+	var sid = Session.get('snippetfilter')
+	if(sid) {
+		var snippet = Snippets.findOne({_id: sid})
+		if(snippet) {
+			document.title = "" + snippet.name + " - MathFriends.meteor.com!"
+		}
+	}
 })}
 
 Template.new_or_login.focus_login = function() { Meteor.defer(function(){
