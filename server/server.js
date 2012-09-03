@@ -1,11 +1,14 @@
 
 // Permissions
 //
+
 Snippets.allow({
 	insert: function() {return true},
 	update: function(userid,docs,fields,modifier){
 
-		if(userid == "bbbbca2c-e151-469d-8e2e-6004122325bf") {
+		var user = Meteor.Users.findOne({_id : userid})
+
+		if(user && user.godmode) {
 			return true
 		}
 
