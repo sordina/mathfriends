@@ -4,6 +4,7 @@ var logged_in = function() {
 }
 
 function display_name(user) {
+	if(! user) {return null}
 	var name = null
 	var names = ['name','emails[0].email','_id']
 	jQuery.each(names,function(index,item){
@@ -75,7 +76,12 @@ Template.small_snippet.username = function() {
 	return display_name(Meteor.users.findOne({_id: this.user}))
 }
 Template.small_snippet.owner = function() {
-	return Meteor.user()._id == this.user
+	var mu = Meteor.user()
+	if(mu) {
+		return mu._id == this.user
+	} else {
+	}
+	return null
 }
 
 Template.logout.logged_in       = logged_in
