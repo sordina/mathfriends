@@ -3,7 +3,12 @@
 //
 
 Snippets.allow({
-	insert: function() {return true},
+	insert: function(userid, doc) {
+		if(userid) {
+			doc.user = userid
+			return true
+		}
+	},
 	update: function(userid,docs,fields,modifier){
 
 		var user = Meteor.users.findOne({_id : userid})
