@@ -76,6 +76,20 @@
 		{{>users}}
 	</div>
 	<div id="snippets">
+
+		{{#if about}}
+			<div id="about">
+				<p> MathFriends was created to test out Meteor and to make sharing math-snippets online FUN! </p>
+				<p> You can read more about MathFriends at
+				<br />
+				<br />
+				<a href="http://sordina.net/portfolio/mathfriends"><img src="/sordina.png" /></a></p>
+				<ul class="icons">
+					<li class="close"> x </li>
+				</ul>
+			</div>
+		{{/if}}
+
 		{{#if no_snippets}}
 			<h3 id="nsf">No Snippets Found</h2>
 		{{/if}}

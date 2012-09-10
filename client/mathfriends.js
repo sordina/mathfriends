@@ -88,11 +88,14 @@ Template.logout.logged_in       = logged_in
 Template.new_or_login.logged_in = logged_in
 
 
+Template.body.about          = function()          { return Session.get('about') };
 Template.body.snippets       = function()          { return Snippets.find() };
 Template.body.expanded       = function(snippetid) { return Session.get('expanded_' + snippetid)}
 Template.body.snippets       = function()          { return Snippets.find({},{sort : {timestamp:-1}})}
 Template.body.no_snippets    = function()          { return Snippets.find({}).count() == 0 }
 Template.body.single_snippet = function()          { return Session.get('snippetfilter')}
+
+Template.body.events = { 'click li': function(e) { Session.set('about', false) } }
 
 Template.logout.events = { 'click a': function(e) { Meteor.logout() } }
 

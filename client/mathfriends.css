@@ -9,6 +9,20 @@
 	display: inline-block !important;
 }
 
+#about {
+	padding: 3em;
+	background: black;
+	font-size: 130%;
+	width: 400px;
+	color: white;
+	margin: 30px auto;
+	position: relative;
+}
+
+#about a {
+	color: white;
+}
+
 #login-buttons a {
 	text-decoration: none;
 }
