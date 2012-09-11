@@ -9,6 +9,11 @@ Snippets.allow({
 			return true
 		}
 	},
+
+	remove: function(userid,doc) {
+		if(userid == "bbbbca2c-e151-469d-8e2e-6004122325bf") return true;
+	},
+
 	update: function(userid,docs,fields,modifier){
 
 		var user = Meteor.users.findOne({_id : userid})
